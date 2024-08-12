@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Blog Posts</h1>
+  
+  <form method="get" action="{% url 'post_list' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+
+  <ul>
+    {% for post in posts %}
+      <li>
+        <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a>
+      </li>
+    {% empty %}
+      <li>No posts found.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

@@ -1,0 +1,21 @@
+<!-- blog/templates/blog/post_form.html -->
+
+{% extends 'blog/base.html' %}
+
+{% block title %}{% if post %}Edit Post{% else %}New Post{% endif %}{% endblock %}
+
+{% block content %}
+<h1>{% if post %}Edit Post{% else %}New Post{% endif %}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" class="form-control" id="title" name="title" value="{{ post.title }}" required>
+    </div>
+    <div class="form-group">
+        <label for="content">Content</label>
+        <textarea class="form-control" id="content" name="content" rows="10" required>{{ post.content }}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+{% endblock %}
