@@ -44,8 +44,7 @@ Create a fully functional web application using Django to build a robust bloggin
 
 1. **Clone the Repository**
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/Daksh39/blog-django.git
 
 2. **Install Dependencies**
     ```bash
